@@ -9,7 +9,7 @@ class Organization {
   }
 
   set name(aString) {
-    this._data.name = aString;
+    this._name = aString;
   }
 
   get country() {
@@ -17,13 +17,21 @@ class Organization {
   }
 
   set country(aCountryCode) {
-    this.country = aCountryCode;
+    this._country = aCountryCode;
   }
 }
 
-const organization = new Organization({ name: "choi", country: "Korea" });
+const organization = setOrganization({ name: "choi", country: "Korea" });
+
 function getOrganization() {
   return organization;
 }
 
+function setOrganization(arg) {
+  const organization = new Organization(arg);
+  return organization;
+}
+
 getOrganization().name = "new name";
+
+console.log(getOrganization().name);

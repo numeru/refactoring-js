@@ -16,7 +16,7 @@ class Organization {
   }
 
   set name(aString) {
-    this._data.name = aString;
+    this._name = aString;
   }
 
   get country() {
@@ -24,11 +24,13 @@ class Organization {
   }
 
   set country(aCountryCode) {
-    this.country = aCountryCode;
+    this._country = aCountryCode;
   }
 }
 
 const organization = new Organization({ name: "choi", country: "Korea" });
+
+// 변수 캡슐화
 function getOrganization() {
   return organization;
 }
