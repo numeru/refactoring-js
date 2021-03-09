@@ -336,3 +336,59 @@ const taxableCharge = aReading.taxableCharge;
 ---
 
 # 6-10 Combine Functions into Transform
+
+- 같은 도출 로직이 반복될 때 하나의 변환 함수로 만든다.
+
+## 예시
+
+```js
+const reading = { customer: "choi", quantity: 10, month: 5, year: 2017 };
+
+function enrichReading(original) {
+  const result = _.cloneDeep(original);
+  result.baseCharge = calculateBaseCharge(result);
+  result.taxableCharge = Math.max(
+    0,
+    result.baseCharge - taxThreshold(result.year)
+  );
+  return result;
+}
+```
+
+# 6-11 Split Phase
+
+- 하나의 동작을 연이은 두 단계로 쪼갠다.
+
+## 예시
+
+```js
+function priceOrder(product, quantity, shippingMethod) {
+  const basePrice = product.basePrice * quantity;
+  const discount =
+    Math.max(quantity - product.discountThreshold, 0) *
+    product.basePrice *
+    product.discountRate;
+
+  // 두번째 함수에 전달될 변수를 중간 객체에 넣는다.
+  const priceData = {
+    basePrice: basePrice,
+    quantity: quantity,
+    discount: discount,
+  };
+
+  // 함수로 쪼갠다.
+  const price = applyShipping(priceData, shippingMethod);
+  return price;
+}
+
+function applyShipping(priceData, shippingMethod) {
+  const shippingPerCase =
+    priceData.basePrice > shippingMethod.discountThreshold
+      ? shippingMethod.discountedFee
+      : shippingMethod.feePerCase;
+
+  const shippingCost = priceData.quantity * shippingPerCase;
+  const price = priceData.basePrice - priceData.discount + shippingCost;
+  return price;
+}
+```
