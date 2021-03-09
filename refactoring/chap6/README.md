@@ -1,8 +1,6 @@
-# Extract Function
+# 6-1 Extract Function
 
 - 길거나, 다른 곳에서도 사용되거나, 알아보기 어려운 코드는 함수로 묶어 적절한 이름을 지어준다.
-
----
 
 ## 절차
 
@@ -16,8 +14,6 @@
 - 있다면 매개변수로 전달한다.
 
 ### 3. 기존의 코드가 있던 곳에서 함수를 호출한다.
-
----
 
 ## 예시
 
@@ -102,24 +98,20 @@ function calculateOutstanding(invoice) {
 
 ---
 
-# Inline Function
+# 6-2 Inline Function
 
 - 함수 본문이 명확한 경우, 간접 호출을 너무 과하게 쓰는 경우 함수를 제거한다. (extract function과 반대)
 
 ---
 
-# Extract Variable
+# 6-3 Extract Variable
 
 - 표현식이 너무 복잡한 경우 지역 변수로 만들어 쪼갠다.
 - 만든 변수가 넓은 문맥에서까지 사용된다면 함수로 추출하는 것을 고려해본다.
 
----
-
 ## 절차
 
 ### 1. 표현식의 일부를 변수로 옮기고 원래 자리를 변수로 대체한다.
-
----
 
 ## 예시
 
@@ -175,18 +167,16 @@ class Order {
 
 ---
 
-# Inline Variable
+# 6-4 Inline Variable
 
 - 변수가 표현식과 다를 바 없을 경우 인라인하는 것이 좋다.
 
 ---
 
-# Change Function Declaration
+# 6-5 Change Function Declaration
 
 - 함수에 명확한 이름을 붙이고, 적절한 매개변수를 전달하는 것이 중요하다.
 - 매개변수를 바꾸면 의존성이 제거되어 더 넓은 문맥에서 사용할 수 있다.
-
----
 
 ## 예시
 
@@ -208,7 +198,7 @@ const newEnglands = customers.filter((c) => inNewEngland(c.address.state));
 
 ---
 
-# Encapsulate Variable
+# 6-6 Encapsulate Variable
 
 - 접근 범위가 넓은 데이터를 옮길 때 데이터로의 접근을 독점하는 함수를 만든다.
 
@@ -227,18 +217,16 @@ export function setDefaultData(arg) {
 
 ---
 
-# Rename Variable
+# 6-7 Rename Variable
 
 - 변수의 목적을 명확히 알 수 있는 이름을 짓는다.
 
 ---
 
-# Introduce Parameter Object
+# 6-8 Introduce Parameter Object
 
 - 관련있는 여러 매개 변수를 하나의 객체로 묶는다.
 - 이 데이터에 공통으로 적용되는 함수를 함께 클래스로 묶을 수 있다.
-
----
 
 ## 절차
 
@@ -247,8 +235,6 @@ export function setDefaultData(arg) {
 - 클래스로 만들면 이후 리팩토링 단계를 진행할 수 있다.
 
 ### 2. 기존 매개 변수를 변경한다.
-
----
 
 ## 예시
 
@@ -297,17 +283,13 @@ function readingsOutsideRange(station, range) {
 
 ---
 
-# Combine Function into Class
+# 6-9 Combine Function into Class
 
 - 관련 데이터와 함수를 클래스로 묶는다.
-
----
 
 ## 절차
 
 ### 1. 관련 데이터가 담긴 클래스로 함수를 옮긴다.
-
----
 
 ## 예시
 
@@ -353,4 +335,4 @@ const taxableCharge = aReading.taxableCharge;
 
 ---
 
-# Combine Functions into Transform
+# 6-10 Combine Functions into Transform
