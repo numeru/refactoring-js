@@ -204,6 +204,6 @@ class Person {
 
 ---
 
-# 7-9 알고리즘 교체하기
+# 7-9 Substitute Algorithm
 
 - 더 간명한 알고리즘을 찾아 교체한다.
