@@ -44,4 +44,34 @@ function regularCharge() {
 
 ---
 
-# 10-5
+# 10-5 Intoduce Special Case
+
+- 특정 상황에서 같은 동작을 하는 코드가 여러 곳에 있을 경우, 하나의 특이 케이스로 묶는다.
+
+---
+
+# 10-6 Introduce Assertion
+
+- 특정 가정이 코드에 항상 명시되게하여, 오류를 찾고 가정된 상태를 다른이에게 알린다.
+
+## 예시
+
+```js
+class Customer {
+  applyDiscount(num) {
+    if (!this.discountRate) return num;
+    else {
+      assert(thus.discountRate >= 0);
+      return num - this.discountRate * num;
+    }
+  }
+}
+```
+
+---
+
+# 10-7 Replace Control Flag with Break
+
+- 특정 상황을 확인하기 위해 쓰이는 제어 플래그는 제거하는 것이 좋다.
+
+--
