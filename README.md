@@ -2,8 +2,6 @@
 
 ### [chap3. 리팩터링을 해야 하는 시점](https://github.com/numeru/refactoring-js/tree/main/refactoring/chap3)
 
-### [chap4. 테스트](https://github.com/numeru/refactoring-js/tree/main/refactoring/chap4)
-
 ### [chap6. 기본적인 리팩터링](https://github.com/numeru/refactoring-js/tree/main/refactoring/chap6)
 
 ### [chap7. 캡슐화](https://github.com/numeru/refactoring-js/tree/main/refactoring/chap7)
